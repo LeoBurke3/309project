@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import java.util.List;
@@ -25,6 +27,8 @@ public class SecondFragment extends Fragment {
 
     ListView listView;
     String[] array = {"hello","my","name","is","leo","my","name","is","leo"};
+    EditText noteBox;
+    Button addButton;
     public SecondFragment() {
         // Required empty public constructor
 
@@ -40,10 +44,11 @@ public class SecondFragment extends Fragment {
     // TODO: Rename and change types and number of parameters
 
 
-    /*@Override
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-    }*/
+
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -54,7 +59,12 @@ public class SecondFragment extends Fragment {
 
         listView = (ListView) view.findViewById(R.id.listview);
         listView.setAdapter(adapter);
+        noteBox = view.findViewById(R.id.shoppingItem);
+        addButton = view.findViewById(R.id.add_button);
         return view;
 
     }
+
+
+
 }
