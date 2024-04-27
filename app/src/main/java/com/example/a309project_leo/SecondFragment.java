@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -20,15 +21,16 @@ import java.util.List;
 
  * create an instance of this fragment.
  */
-public class SecondFragment extends Fragment {
+public class SecondFragment extends Fragment implements View.OnClickListener {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 
     ListView listView;
-    String[] array = {"hello","my","name","is","leo","my","name","is","leo"};
+    ArrayList<String> array = new ArrayList<>();
     EditText noteBox;
     Button addButton;
+    ArrayAdapter adapter;
     public SecondFragment() {
         // Required empty public constructor
 
@@ -54,17 +56,22 @@ public class SecondFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        ArrayAdapter adapter = new ArrayAdapter<String>(requireContext(), android.R.layout.simple_list_item_1,array);
+        adapter = new ArrayAdapter<String>(requireContext(), android.R.layout.simple_list_item_1,array);
         View view = inflater.inflate(R.layout.second_fragment, container, false);
 
         listView = (ListView) view.findViewById(R.id.listview);
         listView.setAdapter(adapter);
         noteBox = view.findViewById(R.id.shoppingItem);
         addButton = view.findViewById(R.id.add_button);
+
+        addButton.setOnClickListener(this);
         return view;
 
     }
 
-
-
+    @Override
+    public void onClick(View v) {
+        array.add(noteBox.getText().toString());
+        adapter.notifyDataSetChanged();
+    }
 }
