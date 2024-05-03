@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="currentCalories">0</integer>
+    <integer name="currentProtein">0</integer>
+    <integer name="currentFat">0</integer>
+    <integer name="currentCarbs">0</integer>
+    <integer name="goalCalories">2250</integer>
+    <integer name="goalProtein">140</integer>
+    <integer name="goalFat">62</integer>
+    <integer name="goalCarbs">280</integer>
+</resources>
