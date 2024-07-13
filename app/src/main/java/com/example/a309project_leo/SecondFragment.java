@@ -11,9 +11,9 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-
 import java.util.ArrayList;
 import java.util.List;
+import com.example.a309project_leo.adapter.MyListAdapter;
 
 
 /**
@@ -30,7 +30,8 @@ public class SecondFragment extends Fragment implements View.OnClickListener {
     ArrayList<String> array = new ArrayList<>();
     EditText noteBox;
     Button addButton;
-    ArrayAdapter adapter;
+    //ArrayAdapter adapter;
+    MyListAdapter adapter2;
     public SecondFragment() {
         // Required empty public constructor
 
@@ -56,13 +57,16 @@ public class SecondFragment extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        adapter = new ArrayAdapter<String>(requireContext(), android.R.layout.simple_list_item_1,array);
+        //adapter = new ArrayAdapter<String>(requireContext(), android.R.layout.simple_list_item_1,array);
         View view = inflater.inflate(R.layout.second_fragment, container, false);
 
         listView = (ListView) view.findViewById(R.id.listview);
-        listView.setAdapter(adapter);
+        //listView.setAdapter(adapter);
         noteBox = view.findViewById(R.id.shoppingItem);
         addButton = view.findViewById(R.id.add_button);
+
+        adapter2 = new MyListAdapter(requireContext(),array);
+        listView.setAdapter(adapter2);
 
         addButton.setOnClickListener(this);
         return view;
@@ -72,6 +76,7 @@ public class SecondFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         array.add(noteBox.getText().toString());
-        adapter.notifyDataSetChanged();
+        noteBox.setText("");
+        adapter2.notifyDataSetChanged();
     }
 }

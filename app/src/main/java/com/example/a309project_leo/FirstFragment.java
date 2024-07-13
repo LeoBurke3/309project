@@ -7,18 +7,15 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link FirstFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class FirstFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 
-
+    TextView calorieNum;
     public FirstFragment() {
         // Required empty public constructor
     }
@@ -41,7 +38,18 @@ public class FirstFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.first_fragment, container, false);
+        View view = inflater.inflate(R.layout.first_fragment, container, false);
+
+        calories(view);
+        return view;
+    }
+
+    public void calories(View view){
+        int currentCalories = getResources().getInteger(R.integer.currentCalories);
+        int goalCalories = getResources().getInteger(R.integer.goalCalories);
+        calorieNum = view.findViewById(R.id.calorieNum);
+        calorieNum.setText(String.valueOf(currentCalories) + '/' + String.valueOf(goalCalories));
     }
 }

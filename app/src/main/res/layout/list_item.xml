@@ -1,0 +1,25 @@
+<!-- res/layout/list_item.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/textViewItem"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Item Text"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/buttonDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="4dp"
+        android:backgroundTint="@color/colorMainDark"
+        android:text="Delete"
+        android:textColor="@color/black"/>
+
+</LinearLayout>
