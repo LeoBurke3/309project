@@ -1,5 +1,8 @@
 <resources>
-    <string name="app_name">309project-Leo</string>
+    <string name="app_name">Macromate</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="appwidget_text">Calories</string>
+    <string name="add_widget">Add widget</string>
+    <string name="app_widget_description">Track your calories without even opening the app!</string>
 </resources>
