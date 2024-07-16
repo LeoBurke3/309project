@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- res/layout/dialog_input.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <EditText
+        android:id="@+id/input_number"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:hint="Enter a number"
+        android:inputType="number"
+        />
+
+    <Button
+        android:id="@+id/submit_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:textColor="@color/black"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/colorMainDark"/>
+</LinearLayout>

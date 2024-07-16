@@ -1,8 +1,10 @@
 package com.example.a309project_leo;
 
+
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.widget.RemoteViews;
 
@@ -10,6 +12,9 @@ import android.widget.RemoteViews;
  * Implementation of App Widget functionality.
  */
 public class CaloriesWidget extends AppWidgetProvider {
+    private static final String PREFS_NAME = "MyAppPreferences";
+    private static final String KEY_CAL = "key_calories";
+
 
     static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
                                 int appWidgetId) {
@@ -18,11 +23,12 @@ public class CaloriesWidget extends AppWidgetProvider {
         int currentCalories = res.getInteger(R.integer.currentCalories);
         int goalCalories = res.getInteger(R.integer.goalCalories);
 
-        CharSequence widgetText = context.getString(R.string.appwidget_text);
+        SharedPreferences sharedPreferences = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+
         // Construct the RemoteViews object
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.calories_widget);
         views.setTextViewText(R.id.appwidget_text, "Calories:" +
-                currentCalories + "\nGoal:" + goalCalories);
+                sharedPreferences.getInt(KEY_CAL,0)+ "\nGoal:" + goalCalories);
 
         // Instruct the widget manager to update the widget
         appWidgetManager.updateAppWidget(appWidgetId, views);

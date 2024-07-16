@@ -18,7 +18,7 @@
         android:layout_marginBottom="8dp"
         android:contentDescription="@string/appwidget_text"
         android:text="Calories: 0"
-        android:textSize="24sp"
+        android:textSize="18sp"
         android:textStyle="bold|italic" />
 
 </RelativeLayout>
