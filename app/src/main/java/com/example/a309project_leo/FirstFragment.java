@@ -39,6 +39,7 @@ public class FirstFragment extends Fragment {
     private static final String KEY_CARBS = "key_carbs";
     private static final String KEY_FAT = "key_fat";
     private static final String KEY_CAL = "key_calories";
+    private static final String KEY_GOAL_CAL = "key_goal_calories";
     public FirstFragment() {
         // Required empty public constructor
     }
@@ -81,13 +82,14 @@ public class FirstFragment extends Fragment {
         calories(view);
 
         progressBar.setProgress(getNumberFromPreferences(KEY_CAL));
+        progressBar.setMax(getNumberFromPreferences(KEY_GOAL_CAL));
         return view;
     }
 
     public void calories(View view){
         int currentCalories = (proteinTotal*4)+(carbTotal*4)+(fatTotal*9);
         saveNumberToPreferences(KEY_CAL,currentCalories);
-        int goalCalories = getResources().getInteger(R.integer.goalCalories);
+        int goalCalories = getNumberFromPreferences(KEY_GOAL_CAL);
         calorieNum = view.findViewById(R.id.calorieNum);
         calorieNum.setText(String.valueOf(currentCalories) + '/' + String.valueOf(goalCalories));
     }
@@ -176,6 +178,7 @@ public class FirstFragment extends Fragment {
         calories(getView());
 
         progressBar.setProgress(getNumberFromPreferences(KEY_CAL));
+        progressBar.setMax(getNumberFromPreferences(KEY_GOAL_CAL));
     }
 
     private void updateWidgets() {

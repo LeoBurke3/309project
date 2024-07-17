@@ -14,6 +14,7 @@ import android.widget.RemoteViews;
 public class CaloriesWidget extends AppWidgetProvider {
     private static final String PREFS_NAME = "MyAppPreferences";
     private static final String KEY_CAL = "key_calories";
+    private static final String KEY_GOAL_CAL = "key_goal_calories";
 
 
     static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
@@ -28,7 +29,7 @@ public class CaloriesWidget extends AppWidgetProvider {
         // Construct the RemoteViews object
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.calories_widget);
         views.setTextViewText(R.id.appwidget_text, "Calories:" +
-                sharedPreferences.getInt(KEY_CAL,0)+ "\nGoal:" + goalCalories);
+                sharedPreferences.getInt(KEY_CAL,0)+ "\nGoal:" + sharedPreferences.getInt(KEY_GOAL_CAL,0));
 
         // Instruct the widget manager to update the widget
         appWidgetManager.updateAppWidget(appWidgetId, views);

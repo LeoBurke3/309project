@@ -5,4 +5,14 @@
     <string name="appwidget_text">Calories</string>
     <string name="add_widget">Add widget</string>
     <string name="app_widget_description">Track your calories without even opening the app!</string>
+    <string-array name="gender">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+    <string-array name="activity">
+        <item>Sedentary</item>
+        <item>Lightly Active</item>
+        <item>Moderately Active</item>
+        <item>Very Active</item>
+    </string-array>
 </resources>
